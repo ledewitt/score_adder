@@ -7,11 +7,11 @@
 require "sinatra"
 require "sinatra/reloader"
 
-get('/home') {
+get('/') {
   erb :home
 }
 
-get('/home/:score') {
+post('/score') {
   score = params[:score].to_i
   erb :score, locals: { score: score }
 }
