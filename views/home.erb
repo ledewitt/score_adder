@@ -1,3 +1,9 @@
 <h1>This is the home page</h1>
 
-<h2>Please enter your first score:</h2>
+<p>Please enter your first score:
+  <form action="home/score" method="post">
+    <div><label for="name">Score:</label><br />
+    <input type="text" id="score" name="score" /></div>
+    <div><input type="submit" value="submit" /></div>
+  </form>  
+</p>
