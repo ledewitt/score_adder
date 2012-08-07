@@ -8,7 +8,7 @@ module ScoreAdder
     
     attr_accessor :shot_1, :shot_2
     
-    def print_frame
+    def to_s
       "#{@shot_1} | #{@shot_2}"
     end
     
