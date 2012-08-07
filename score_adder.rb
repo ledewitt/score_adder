@@ -6,9 +6,8 @@
 
 require "sinatra"
 require "sinatra/reloader"
-# require "active_support/core_ext/enumerable.rb"
 
-game        = Array.new
+game = Array.new
 
 get('/') {
   erb :home, locals: { game: game }
