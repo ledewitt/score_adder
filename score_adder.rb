@@ -7,11 +7,14 @@
 require "sinatra"
 require "sinatra/reloader"
 
+game = Array.new
+
 get('/') {
-  erb :home
+  erb :home, locals: { game: game }
 }
 
 post('/score') {
   score = params[:score].to_i
-  erb :score, locals: { score: score }
+  erb :score, locals: { score: score,
+                        game: game }
 }
