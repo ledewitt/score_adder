@@ -6,8 +6,10 @@
 
 require "sinatra"
 require "sinatra/reloader"
+# require "active_support/core_ext/enumerable.rb"
 
-game = Array.new
+game        = Array.new
+total_score = 0
 
 get('/') {
   erb :home, locals: { game: game }
@@ -16,6 +18,9 @@ get('/') {
 post('/score') {
   score = params[:score].to_i
   game << score
-  erb :score, locals: { score: score,
-                        game: game }
+  total_score += score
+  # game.each { |x| total_score += x} <-- Double adding problem
+  erb :score, locals: { score:       score,
+                        game:        game,
+                        total_score: total_score }
 }
