@@ -8,9 +8,7 @@ require "sinatra"
 require "sinatra/reloader"
 
 get('/home') {
-  "I am home."
-  
-  "Enter your first score:"
+  erb :home
 }
 
 get('/home/:score') {
