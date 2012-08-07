@@ -15,6 +15,7 @@ get('/') {
 
 post('/score') {
   score = params[:score].to_i
+  game << score
   erb :score, locals: { score: score,
                         game: game }
 }
