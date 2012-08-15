@@ -1,0 +1,15 @@
+<h1> Score <%= score %> 
+</h1>
+
+<h2> Game <%= game %>
+</h2>
+
+<%= erb :game_table, locals: { game: game, frames: frames } %>
+
+<h2> Total Score <%= total_score %>
+</h2>
+
+<p>Please enter your next score: 
+</p>
+
+<%= erb :score_form %>
