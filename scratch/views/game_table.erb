@@ -1,12 +1,12 @@
 <table>
-  <th>
-    <% frames.each do |frame| %>
-      <td><%= frame %></td>
-    <% end %>
-  </th>
   <tr>
-    <% game.each do |shot| %>
-      <td><%= shot %></td>
+    <% game.frames.each_index do |i| %>
+      <th><%= i + 1 %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% game.frames.each do |frame| %>
+      <td><%= frame %></td>
     <% end %>
   </tr>
 </table>

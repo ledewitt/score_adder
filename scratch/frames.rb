@@ -1,20 +1,14 @@
 require "sinatra"
-require "sinatra/reloader"
+require "sinatra/reloader" if development?
 
-frames = (1..10).entries
-game = Array.new
+require_relative "lib/jeg2s_game"
+game = Game.new
 
 get('/') {
-  erb :home, locals: { game: game }
+  erb :home
 }
 
 post('/score') {
-  score = params[:score].to_i
-  game << score
-  total_score = 0
-  game.each { |x| total_score += x}
-  erb :score, locals: { score:       score,
-                        frames:      frames,
-                        game:        game,
-                        total_score: total_score }
+  game.add_shot(params[:pins].to_s.split(/,\s*/))
+  erb :score, locals: {game: game}
 }
